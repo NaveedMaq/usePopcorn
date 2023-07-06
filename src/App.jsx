@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import StarRating from './StarRating';
 
 const KEY = '20564e00';
@@ -144,8 +144,28 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
+  const inputEl = useRef(null);
+
+  useEffect(
+    function () {
+      function callback(e) {
+        if (e.key === 'Enter') {
+          if (document.activeElement !== inputEl) {
+            setQuery('');
+          }
+
+          inputEl.current.focus();
+        }
+      }
+
+      document.addEventListener('keypress', callback);
+      return () => document.removeEventListener('keypress', callback);
+    },
+    [setQuery]
+  );
   return (
     <input
+      ref={inputEl}
       className='search'
       type='text'
       placeholder='Search movies...'
