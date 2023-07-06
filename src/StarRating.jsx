@@ -31,10 +31,8 @@ export default function StarRating({
   messages = [],
   onSetRating = () => {},
 }) {
-  console.log({ messages });
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
-  //   console.log(color)
 
   function handleRating(rating) {
     setRating(rating);

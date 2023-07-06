@@ -29,6 +29,11 @@ body {
   padding: 2.4rem;
 }
 
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+
 /* ******* */
 
 .nav-bar {
@@ -54,8 +59,7 @@ body {
   max-width: 42rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
-  overflow-y: scroll;
-  /* overflow: scroll; */
+  overflow: scroll;
   position: relative;
 }
 
@@ -139,22 +143,9 @@ body {
 .list {
   list-style: none;
   padding: 0.8rem 0;
-  /* overflow: scroll; */
-  /* overflow-y: scroll; */
+  overflow: scroll;
 }
 
-div::-webkit-scrollbar {
-  width: 0.2rem;
-  border-radius: 50%;
-}
-
-div::-webkit-scrollbar-track {
-  background: #888;
-}
-
-div::-webkit-scrollbar-thumb {
-  background: #555;
-}
 
 
 .list-watched {
